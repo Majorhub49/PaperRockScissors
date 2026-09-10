@@ -82,18 +82,17 @@ int getWinner(int P, int C)
 {
 	if ((P == 1 && C == 2) || (P == 2 && C == 3) || (P == 3 && C == 1)) {
 		// player win
-		std::cout << "Player Wins! \n";
 		return 1;
 	}
 	else if (P == C) {
 		// draw
-		std::cout << "Its a Draw! \n";
-		return 3;
+		
+		return 2;
 	}
 	else {
 		// player loss 
-		std::cout << "CPU Wins \n";
-		return 2;
+		
+		return 3;
 	}
 	return 0;
 }
@@ -130,14 +129,18 @@ int main()
 		player = playerChoice();
 		computer = cpuChoice();
 
+
 		if (getWinner(player, computer) == 1) {
+			std::cout << "Player Wins! \n";
 			wins = wins + 1;
 		}
 		else if (getWinner(player, computer) == 2) {
-			loss = loss + 1;
+			std::cout << "Its a Draw! \n";
+			draw = draw + 1;
 		}
 		else if (getWinner(player, computer) == 3) {
-			draw = draw + 1;
+			std::cout << "CPU Wins \n";
+			loss = loss + 1;
 		}
 		else {
 			std::cout << "uhh theres something wrong";
